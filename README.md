@@ -35,7 +35,6 @@ BestSecondPrice ist eine Software, die prüft, ob Bücher als Mängelexemplare a
 ## Empfehlungen
 
 - **Automatisierung**: Es wird empfohlen, die Software auf einem Server auszuführen oder sie in der Aufgabenplanung zu hinterlegen, um regelmäßige Überprüfungen durchzuführen.
-- **Sicherheit**: Stelle sicher, dass die übergebenen E-Mail-Anmeldeinformationen sicher gespeichert und verarbeitet werden.
 
 ## Beispiel-Suchbegriffe.txt
 
