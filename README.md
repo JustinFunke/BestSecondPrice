@@ -38,6 +38,8 @@ BestSecondPrice ist eine Software, die prüft, ob Bücher als Mängelexemplare a
 - **Sicherheit**: Stelle sicher, dass die übergebenen E-Mail-Anmeldeinformationen sicher gespeichert und verarbeitet werden.
 
 ## Beispiel-Suchbegriffe.txt
+
+```txt
 Harry Potter und der Stein der Weisen
 Der Herr der Ringe
 Die Tribute von Panem
