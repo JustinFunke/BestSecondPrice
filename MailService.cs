@@ -4,23 +4,14 @@ using System.Net.Mail;
 
 namespace BestSecondPrice;
 
-public class MailService
+public class MailService(string fromAddress, string password, string smtpServer, int port, string toAddress)
 {
-    private readonly string _fromAddress;
-    private readonly string _password;
-    private readonly string _smtpServer;
-    private readonly int _port;
-    private readonly string _toAddress;
+    private readonly string _fromAddress = fromAddress;
+    private readonly string _password = password;
+    private readonly string _smtpServer = smtpServer;
+    private readonly int _port = port;
+    private readonly string _toAddress = toAddress;
 
-
-    public MailService(string fromAddress, string password, string smtpServer, int port, string toAddress)
-    {
-        this._fromAddress = fromAddress;
-        this._password = password;
-        this._smtpServer = smtpServer;
-        this._port = port;
-        this._toAddress = toAddress;
-    }
     public void SendeErgebnissePerEmail(List<Ergebniss> aktiveAngebote)
     {
         if (aktiveAngebote.Count <= 0) return;
@@ -28,7 +19,7 @@ public class MailService
         {
             From = new MailAddress(this._fromAddress),
             Subject = "Suchergebnisse",
-            Body = this.ErstelleEmailBody(aktiveAngebote),
+            Body = ErstelleEmailBody(aktiveAngebote),
             IsBodyHtml = true
         };
         mailMessage.To.Add(this._toAddress);
@@ -40,7 +31,7 @@ public class MailService
         smtpClient.Send(mailMessage);
     }
 
-    private string ErstelleEmailBody(List<Ergebniss> ergebnisse)
+    private static string ErstelleEmailBody(List<Ergebniss> ergebnisse)
     {
         var body = "<h1>Angebote</h1><ul>";
         foreach (var ergebnis in ergebnisse)
