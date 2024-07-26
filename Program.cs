@@ -17,6 +17,13 @@ if (int.TryParse(args[3],out port)== false)
     Console.ReadLine();
     return;
 }
+
+if(Path.Exists("Suchbegriffe.txt")== false)
+{
+    Console.WriteLine("Bitte legen Sie eine Datei mit dem Namen Suchbegriffe.txt an.");
+    Console.ReadLine();
+    return;
+}
 var emailService = new MailService(args[0], args[1], args[2], port, args[4]);
 
 var suchbegriffe = TextReader.HoleSuchbegriffe();

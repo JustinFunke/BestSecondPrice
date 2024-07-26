@@ -1,8 +1,7 @@
 {
   "profiles": {
     "BestSecondPrice": {
-      "commandName": "Project",
-      "commandLineArgs": "stmsendermail@gmail.com \"wzrf hoay ggmt pcqr\" smtp.gmail.com 587 justin.funke81@gmail.com"
+      "commandName": "Project"
     }
   }
 }
