@@ -20,14 +20,18 @@ if (int.TryParse(args[3], out var port) == false)
     return;
 }
 
+if(Path.Exists("Suchbegriffe.txt")== false)
+{
+    Console.WriteLine("Bitte legen Sie eine Datei mit dem Namen Suchbegriffe.txt an.");
+    Console.ReadLine();
+    return;
+}
 if (IsInternetAvailable().Result == false)
 {
     Console.WriteLine("Keine Internetverbindung vorhanden");
     Console.ReadLine();
     return;
 }
-
-
 var emailService = new MailService(args[0], args[1], args[2], port, args[4]);
 
 var suchbegriffe = TextReader.HoleSuchbegriffe();

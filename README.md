@@ -5,7 +5,7 @@ BestSecondPrice ist eine Software, die prüft, ob Bücher als Mängelexemplare a
 
 ## Voraussetzungen
 
-- .NET Framework
+- .NET 8 Framework
 - Internetverbindung
 - Eine Textdatei namens `Suchbegriffe.txt` im selben Verzeichnis wie die ausführbare Datei (`.exe`). Diese Datei sollte die Suchbegriffe enthalten, wobei jeder Begriff in einer neuen Zeile steht.
 
