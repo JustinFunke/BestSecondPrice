@@ -7,7 +7,7 @@ namespace BestSecondPrice;
 
 public class Cheebo : WebseitenBase
 {
-    private const string webseitenName = "Cheebo";
+    private const string WebseitenName = "Cheebo";
 
     public Cheebo()
         :base("https://cheaboo.de/")
@@ -26,7 +26,7 @@ public class Cheebo : WebseitenBase
         if (sucheElemente.Count > 0)
         {
             Console.WriteLine($"Cheebo");
-            this.SchreibeAbschnitt();
+            SchreibeAbschnitt();
 
             var searchBox = this.driver.FindElement(By.Name("search"));
             if (searchBox == null)
@@ -58,13 +58,13 @@ public class Cheebo : WebseitenBase
                         productPrice = productPrice[..productPrice.IndexOf(" ", StringComparison.Ordinal)];
                         
                         if (!productName.Equals(element, StringComparison.OrdinalIgnoreCase)) continue;
-                        this.SchreibeErgebnis(element, productPrice, "JA", webseitenName);
+                        this.SchreibeErgebnis(element, productPrice, "JA", WebseitenName);
                         productFound = true;
                         break;
                     }
                     if (productFound == false)
                     {
-                        this.SchreibeErgebnis(element, "0", "NEIN", webseitenName);
+                        this.SchreibeErgebnis(element, "0", "NEIN", WebseitenName);
                     }
                     searchBox.Clear();
                 }
@@ -82,8 +82,6 @@ public class Cheebo : WebseitenBase
         {
             Console.WriteLine("Keine Suchelemente vorhanden");
         }
-        this.SchreibeAbschnitt();
+        SchreibeAbschnitt();
     }
-
-    //TODO [J.Funke] 11-07-2024: Consolenanwendung komplett verstecken wenn Email gesendet wurde
 }

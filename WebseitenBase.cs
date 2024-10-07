@@ -9,8 +9,7 @@ public abstract class WebseitenBase
 {
     protected IWebDriver driver;
 
-    protected List<Ergebniss> ergebnisse;
-    public List<Ergebniss> Ergebnisse => this.ergebnisse;
+    public List<Ergebniss> Ergebnisse = new();
 
     protected WebseitenBase(string webseite)
     {
@@ -24,7 +23,6 @@ public abstract class WebseitenBase
         service.HideCommandPromptWindow = true;
 
         this.driver = new ChromeDriver(service, options);
-        this.ergebnisse = new List<Ergebniss>();
         this.VerbindeUndSetzeElemente(webseite);
     }
     protected abstract void SetzeCookies();
@@ -36,7 +34,7 @@ public abstract class WebseitenBase
         Console.WriteLine($"Product: {element} | | Price: {price} € | | Angebot: {angebot} || Webseite: {webseite}");
         if (angebot.Equals("JA", StringComparison.OrdinalIgnoreCase))
         {
-            this.ergebnisse.Add(new Ergebniss()
+            this.Ergebnisse.Add(new Ergebniss()
             {
                 Product = element,
                 Price = price,
@@ -46,7 +44,7 @@ public abstract class WebseitenBase
         }
     }
 
-    protected void SchreibeAbschnitt()
+    protected static void SchreibeAbschnitt()
     {
         Console.WriteLine($"================================================================================================================");
     }

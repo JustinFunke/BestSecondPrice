@@ -21,7 +21,7 @@ public class Arvelle : WebseitenBase
         if (sucheElemente.Count > 0)
         {
             Console.WriteLine($"Arvelle");
-            this.SchreibeAbschnitt();
+            SchreibeAbschnitt();
 
             var searchBox = this.driver.FindElement(By.Id("searchfield"));
             if (searchBox == null)
@@ -56,6 +56,7 @@ public class Arvelle : WebseitenBase
                         }
                         catch (Exception e)
                         {
+                            Console.WriteLine("Es ist ein Fehler aufgetreten: " + e.Message);
                             break;
                         }
                         if (productNameElement == null)
@@ -112,6 +113,6 @@ public class Arvelle : WebseitenBase
         {
             Console.WriteLine("Keine Suchelemente vorhanden");
         }
-        this.SchreibeAbschnitt();
+        SchreibeAbschnitt();
     }
 }
